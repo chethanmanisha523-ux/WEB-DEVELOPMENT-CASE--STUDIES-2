@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Student Service Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">🎓 Student Service Portal</div>
+    <p>One Portal. All Student Services.</p>
+</header>
+
+<div class="container">
+
+    <section class="welcome">
+        <h1>Welcome to Student Services</h1>
+        <p>Submit your requests and track them easily.</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h2 id="totalRequests">0</h2>
+            <p>Total Requests</p>
+        </div>
+        <div class="stat-card">
+            <h2 id="academicCount">0</h2>
+            <p>Academic</p>
+        </div>
+        <div class="stat-card">
+            <h2 id="otherCount">0</h2>
+            <p>Other Services</p>
+        </div>
+    </section>
+
+    <section class="form-card">
+        <h2>Submit a Service Request</h2>
+
+        <form id="serviceForm">
+
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName"
+                       placeholder="Enter your full name">
+                <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="rollNumber">Roll Number</label>
+                <input type="text" id="rollNumber"
+                       placeholder="Enter your roll number">
+                <small class="error" id="rollError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email"
+                       placeholder="Enter your email">
+                <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="serviceType">Select Service Type</label>
+                <select id="serviceType">
+                    <option value="">-- Select Service --</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Hostel">Hostel</option>
+                    <option value="Library">Library</option>
+                    <option value="IT Support">IT Support</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Other">Other</option>
+                </select>
+                <small class="error" id="serviceError"></small>
+            </div>
+
+            <!-- Dynamic fields appear here -->
+            <div id="dynamicFields"></div>
+
+            <div class="form-group">
+                <label for="description">Request Description</label>
+                <textarea id="description"
+                          placeholder="Explain your request in detail..."
+                          rows="4"></textarea>
+                <small class="error" id="descriptionError"></small>
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <select id="priority">
+                    <option value="">-- Select Priority --</option>
+                    <option value="Normal">Normal</option>
+                    <option value="High">High</option>
+                </select>
+                <small class="error" id="priorityError"></small>
+            </div>
+
+            <button type="submit" id="submitBtn">
+                Submit Request
+            </button>
+
+            <button type="reset" class="reset-btn">
+                Reset Form
+            </button>
+
+        </form>
+    </section>
+
+    <section class="requests-card">
+        <h2>Submitted Requests</h2>
+
+        <input type="text" id="searchInput"
+               placeholder="Search by name, roll number or service...">
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Roll No.</th>
+                        <th>Service</th>
+                        <th>Priority</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="requestTable">
+                </tbody>
+            </table>
+        </div>
+
+        <p id="emptyMessage">No requests submitted yet.</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>Online Student Service Portal | Student Support System</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
