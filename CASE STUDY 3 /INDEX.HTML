@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance & Exam Eligibility Checker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <div class="brand">
+        <div class="logo">🎓</div>
+        <div>
+            <h2>Eligibility Checker</h2>
+            <p>Student Academic Dashboard</p>
+        </div>
+    </div>
+    <span class="header-badge">Academic Portal</span>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <span class="tag">STUDENT MANAGEMENT SYSTEM</span>
+            <h1>Attendance & Exam Eligibility</h1>
+            <p>
+                Manage student records and evaluate examination
+                eligibility using attendance and academic performance.
+            </p>
+        </div>
+    </section>
+
+    <!-- SUMMARY CARDS -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon blue">👥</div>
+            <div>
+                <p>Total Students</p>
+                <h2 id="totalStudents">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon green">✅</div>
+            <div>
+                <p>Eligible Students</p>
+                <h2 id="eligibleStudents">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon orange">⚠️</div>
+            <div>
+                <p>Not Eligible</p>
+                <h2 id="notEligibleStudents">0</h2>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon purple">📊</div>
+            <div>
+                <p>Average Attendance</p>
+                <h2 id="averageAttendance">0%</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ADD STUDENT FORM -->
+
+    <section class="form-section">
+        <div class="section-title">
+            <div>
+                <h2>Add Student Details</h2>
+                <p>Enter attendance and academic performance.</p>
+            </div>
+        </div>
+
+        <form id="studentForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="studentName">Student Name</label>
+                    <input type="text" id="studentName"
+                           placeholder="Enter student name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentRoll">Roll Number</label>
+                    <input type="text" id="studentRoll"
+                           placeholder="Enter roll number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="attendance">Attendance Percentage (%)</label>
+                    <input type="number" id="attendance"
+                           min="0" max="100" step="0.01"
+                           placeholder="Enter attendance" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="m1Marks">Minor-1 Marks (out of 100)</label>
+                    <input type="number" id="m1Marks"
+                           min="0" max="100"
+                           placeholder="Enter Minor-1 marks" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="m2Marks">Minor-2 Marks (out of 100)</label>
+                    <input type="number" id="m2Marks"
+                           min="0" max="100"
+                           placeholder="Enter Minor-2 marks" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endtermMarks">Endterm Marks (out of 100)</label>
+                    <input type="number" id="endtermMarks"
+                           min="0" max="100"
+                           placeholder="Enter Endterm marks" required>
+                </div>
+
+            </div>
+
+            <button type="submit" class="submit-btn">
+                + Add & Check Eligibility
+            </button>
+
+        </form>
+    </section>
+
+    <!-- STUDENT TABLE -->
+
+    <section class="table-section">
+
+        <div class="table-heading">
+            <div>
+                <h2>Student Eligibility Records</h2>
+                <p>Review students' exam eligibility status.</p>
+            </div>
+
+            <div class="table-actions">
+                <input type="search" id="searchInput"
+                       placeholder="Search student..."
+                       oninput="renderStudents()">
+
+                <button class="clear-btn" onclick="clearRecords()">
+                    Clear Records
+                </button>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Roll No.</th>
+                        <th>Student Name</th>
+                        <th>Attendance</th>
+                        <th>Minor-1</th>
+                        <th>Minor-2</th>
+                        <th>Endterm</th>
+                        <th>Overall Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+            <span>📋</span>
+            <h3>No student records yet</h3>
+            <p>Add student details using the form above.</p>
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Attendance & Exam Eligibility Checker</p>
+    <p>JavaScript Web Development Case Study</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
